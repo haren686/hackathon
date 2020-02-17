@@ -1,0 +1,34 @@
+h1.line-em-up {
+    border-bottom: solid 1px #ccc;
+    padding-bottom: 10px;
+    color: #ef7c00;
+    font-size: xx-large;
+}
+td.description{    
+    padding: 10px;
+    text-align: center;
+    font-size: x-large;
+    line-height: 15px;
+    padding: 10px;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    color: #f5821f;
+    align-content: center;
+}
+a.btn
+{
+    padding: 10px;
+    text-align: center;
+    font-size: x-large;
+    line-height: 15px;
+    padding: 10px;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    color: #f5821f;
+    align-content: center;
+    text-decoration: underline;
+}
+
+

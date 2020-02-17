@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "CompareCreditCard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+  
+}
+
+<head>
+    <title>Compare Credit Cards Online - Compare &amp; Apply For Credit Cards Online - My Bank</title>
+</head>
+
+<body style="align-content:center;">
+    <div align="center">
+        <h1 class="line-em-up" wiid="C1757" style="align-content:center;">Compare Credit Cards</h1>
+        @{
+            CustomerDetails custInfo = (CustomerDetails)TempData["CustDetails"];
+            NewCardDetails newCard = (NewCardDetails)TempData["NewCardDetails"];
+            <table class="" style="width:60%; align-content:center;">
+                <tr>
+                    <td width="10%"></td>
+                    <td class="description" width="30%"><img src="../images/OldCreditCard.png" id="card1" wiid="C127" height="100px" width="200px"></td>
+                    <td class="description" width="30%"><img src="../images/NewCreditCard.jpg" id="card1" wiid="C127" height="100px" width="200px"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td class="description">My Bank - @custInfo.body.CardInfo.CardSegment.ToString()</td>
+                    <td class="description">My Bank - @newCard.body.CardDetails.CardSegment.ToString()</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Features
+                    </td>
+                    <td>
+                        <ul>
+                            @foreach (var benefit in custInfo.body.CardBenefits)
+                            {
+                                <li>@benefit.Description.ToString()</li>
+                            }
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            @foreach (var benefit in newCard.body.Benefits)
+                            {
+                                <li>@benefit.Description.ToString()</li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="description" width="30%"></td>
+                    <td class="description" width="30%"><div><a asp-controller="CreditCard" asp-action="ApplyCreditCard" style="margin-top: 20px;" id="btn1" class="btn">APPLY NOW</a></div></td>
+                </tr>
+                <tr>
+
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+

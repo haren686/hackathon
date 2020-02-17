@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "ApplyCreditCard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title>Apply For Credit Cards Online - My Bank</title>
+</head>
+<body>
+    @{ CustomerDetails UserInfo = (CustomerDetails)TempData["CustDetails"];
+        NewCardDetails newCardDetails = (NewCardDetails) TempData["newCardDetails"];
+        <form method="post" enctype="multipart/form-data" asp-controller="CreditCard" asp-action="UploadAndAuthenticate">
+            <div align="center">
+                <h1 class="line-em-up">Apply For Credit Cards Online</h1>
+                <table>
+                    <tr><td><b>Name:</b> @UserInfo.body.CustomerDetails.Name</td></tr>
+                    <tr><td><b>Email:</b> @UserInfo.body.CustomerDetails.Email</td></tr>
+                    <tr><td><b>Phone No:</b> @UserInfo.body.CustomerDetails.PhoneNumber</td></tr>
+                    <tr><td><b>Card Type:</b>My Bank @newCardDetails.body.CardDetails.CardSegment Card</td></tr>
+                    <tr><td><h4>Please Upload your photo for Authentication:</h4></td></tr>
+                    <tr>
+                        <td>
+                            <b>Note:</b><ul>
+                                <li>Take a selfie/Upload your recent photo in jpeg format</li>
+                                <li>Image size should not exceed 2MB</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr><td><input type="file" accept="image/jpeg" capture="camera" name="files" /></td></tr>
+                    <tr><td><input type="submit" value="Upload And Verify" /></td></tr>
+                </table>
+            </div>
+        </form>
+    }
+</body>
