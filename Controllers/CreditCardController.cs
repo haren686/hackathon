@@ -205,6 +205,7 @@ namespace Hackathon.Web.Controllers
                 return RedirectToAction("Error", "Home");
             }
         }
+
         public IActionResult Fail()
         {
             try
@@ -216,10 +217,6 @@ namespace Hackathon.Web.Controllers
                 return RedirectToAction("Error", "Home");
             }
         }
-
-
-
-
 
     }
 }
