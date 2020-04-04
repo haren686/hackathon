@@ -89,7 +89,7 @@ namespace Hackathon.Web.Controllers
 
                 if (await AuthenticateUserByFace(bytes))
                 {
-                    AmazonSQSClient sqsClient = new AmazonSQSClient(Environment.GetEnvironmentVariable("ACCESS_KEY_ID"), Environment.GetEnvironmentVariable("SECRET_ACCESS_KEY"), RegionEndpoint.USEast2);
+                    AmazonSQSClient sqsClient = new AmazonSQSClient(Environment.GetEnvironmentVariable("ACCESS_KEY_ID"), Environment.GetEnvironmentVariable("SECRET_ACCESS_KEY"), RegionEndpoint.USWest2);
                     var request = new SendMessageRequest
                     {
                         DelaySeconds = (int)TimeSpan.FromSeconds(5).TotalSeconds,
@@ -127,7 +127,7 @@ namespace Hackathon.Web.Controllers
                                             }
                                         },
                         MessageBody = $"User {custInfo.body.CustomerDetails.CustomerId + " - " + custInfo.body.CustomerDetails.Name } has been authenticated successfully",
-                        QueueUrl = "https://sqs.us-east-2.amazonaws.com/538588550648/ProcessCreditCardRequest"
+                        QueueUrl = "https://sqs.us-west-2.amazonaws.com/846886187955/ProcessCreditCardRequest"
                     };
 
                     SendMessageResponse response = await sqsClient.SendMessageAsync(request);
