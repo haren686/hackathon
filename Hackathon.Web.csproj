@@ -17,11 +17,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AWS.Logger.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="AWS.Logger.Core" Version="1.6.0" />
     <PackageReference Include="AWSSDK.Rekognition" Version="3.3.103.21" />
     <PackageReference Include="AWSSDK.S3" Version="3.3.110.19" />
     <PackageReference Include="AWSSDK.SQS" Version="3.3.102.62" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Logging.EventLog" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />

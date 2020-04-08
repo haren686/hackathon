@@ -12,11 +12,13 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Hackathon.Web.Models;
+using Microsoft.Extensions.Logging;
 
 namespace Hackathon.Web.Controllers
 {
     public class CreditCardController : Controller
     {
+        private ILogger<CreditCardController> logger;
         public async Task<IActionResult> CompareCreditCard(string Id)
         {
             try
@@ -139,8 +141,9 @@ namespace Hackathon.Web.Controllers
                 else
                     return RedirectToAction("Fail");
             }
-            catch
+            catch(Exception Ex)
             {
+                logger.LogWarning(Ex.Message);
                 return RedirectToAction("Error", "Home");
             }
         }
